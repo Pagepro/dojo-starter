@@ -1,10 +1,10 @@
 // import {add} from './add'
 
-describe('name of test case', () => {
-  it('unit test case', () => {
-    expect(true).toBe(true)
-  })
-})
+// describe('name of test case', () => {
+//   it('unit test case', () => {
+//     expect(true).toBe(true)
+//   })
+// })
 
 // describe('add()', () => {
 //   it('adds 2+3 to be 5', () => {
