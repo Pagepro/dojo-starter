@@ -1,0 +1,39 @@
+{
+  "name": "dojo-starter",
+  "version": "1.0.0",
+  "description": "dojo starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "standard ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pagepro/dojo-starter.git"
+  },
+  "keywords": [
+    "dojo",
+    "pagepro",
+    "kata"
+  ],
+  "author": "Pagepro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pagepro/dojo-starter/issues"
+  },
+  "homepage": "https://github.com/Pagepro/dojo-starter#readme",
+  "devDependencies": {
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.4.2",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
+  }
+}
