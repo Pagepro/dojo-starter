@@ -7,7 +7,7 @@
 * .not inverse the next comparison
 * .toThrow(?message)
 * .toBe(value) comparison using ===
-* .toEqual(value) deep comparison. Use jasmine.any(type) to be softer
+* .toEqual(value) deep comparison (objects, arrays)
 * .toBeFalsy()
 * .toBeTruthy()
 * .toBeNull()
