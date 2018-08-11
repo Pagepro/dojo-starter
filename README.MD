@@ -1,4 +1,4 @@
-# Coding Dojo Starter
+# JavaScript Coding Dojo Starter
 
 ## Globally injected variables
 * describe(name, fn)
