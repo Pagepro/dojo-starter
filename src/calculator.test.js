@@ -52,4 +52,54 @@ describe('Roman Calculator', () => {
     expect(RomanCalculator.convertToRoman(1666)).toBe('MDCLXVI')
     expect(RomanCalculator.convertToRoman(3874)).toBe('MMMDCCCLXXIV')
   })
+
+  it('should add values correctly', () => {
+    expect(() => RomanCalculator.add('xvi', 'sad')).toThrow()
+    expect(() => RomanCalculator.add(undefined, 'x')).toThrow()
+    expect(() => RomanCalculator.add('xvi', undefined)).toThrow()
+    expect(() => RomanCalculator.add('xvi')).toThrow()
+    expect(() => RomanCalculator.add('MMM', 'MM')).toThrow()
+
+    expect(RomanCalculator.add('xvi', 'iv')).toBe('XX')
+    expect(RomanCalculator.add('iv', 'xvi')).toBe('XX')
+    expect(RomanCalculator.add('MDCLXVI', 'MDCLXVI')).toBe('MMMCCCXXXII')
+    expect(RomanCalculator.add('I', 'iii')).toBe('IV')
+    expect(RomanCalculator.add('xx', 'cc')).toBe('CCXX')
+    expect(RomanCalculator.add('v', 'ii')).toBe('VII')
+    expect(RomanCalculator.add('c', 'd')).toBe('DC')
+    expect(RomanCalculator.add('MMMIX', 'MCMXC')).toBe('MMMMCMXCIX')
+  })
+
+  it('helper method should extract values correactly', () => {
+    expect(() => RomanCalculator.extract(undefined, 'XX')).toThrow()
+    expect(() => RomanCalculator.extract('XVI', undefined)).toThrow()
+    expect(() => RomanCalculator.extract('XVI', 0)).toThrow()
+    expect(() => RomanCalculator.extract('XVI', null)).toThrow()
+    expect(() => RomanCalculator.extract('XVI', 'random')).toThrow()
+    expect(() => RomanCalculator.extract('XVI', 25)).toThrow()
+
+    expect(RomanCalculator.extract('XVI', 'XX')).toEqual([ 16, 20 ])
+    expect(RomanCalculator.extract('CD', 'I')).toEqual([ 400, 1 ])
+    expect(RomanCalculator.extract('MMMM', 'MMCM')).toEqual([ 4000, 2900 ])
+    expect(RomanCalculator.extract('IV', 'XXX')).toEqual([ 4, 30 ])
+  })
+
+  it('should substract values correctly', () => {
+    expect(() => RomanCalculator.substract('xvi', 'sad')).toThrow()
+    expect(() => RomanCalculator.substract(undefined, 'x')).toThrow()
+    expect(() => RomanCalculator.substract('xvi', undefined)).toThrow()
+    expect(() => RomanCalculator.substract('xvi')).toThrow()
+
+    expect(() => RomanCalculator.substract('MM', 'MM')).toThrow()
+    expect(() => RomanCalculator.substract('MM', 'MMMM')).toThrow()
+    expect(() => RomanCalculator.substract('I', 'X')).toThrow()
+    expect(() => RomanCalculator.substract('M', 'MI')).toThrow()
+
+    expect(RomanCalculator.substract('xvi', 'iv')).toBe('XII')
+    expect(RomanCalculator.substract('MM', 'xvi')).toBe('MCMLXXXIV')
+    expect(RomanCalculator.substract('CC', 'XX')).toBe('CLXXX')
+    expect(RomanCalculator.substract('v', 'ii')).toBe('III')
+    expect(RomanCalculator.substract('d', 'c')).toBe('CD')
+    expect(RomanCalculator.substract('X', 'I')).toBe('IX')
+  })
 })
