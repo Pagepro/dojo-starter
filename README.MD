@@ -24,7 +24,7 @@
 * .toBeCalledWith(arg, um, ents)
 * .lastCalledWith(arg, um, ents)
 
-## modules
+## Using JS Modules
 
 ```javascript
 import { name } from 'path'
@@ -47,7 +47,7 @@ export default name
 ```
 
 
-## scripts
+## Scripts
 
 ```shell
 npm run test
@@ -60,4 +60,3 @@ npm run test:watch
 ```shell
 npm run lint
 ```
-
