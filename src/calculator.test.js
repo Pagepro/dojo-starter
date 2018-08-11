@@ -1,21 +1,55 @@
-// import {add} from './add'
+import RomanCalculator from './calculator'
 
-// describe('name of test case', () => {
-//   it('unit test case', () => {
-//     expect(true).toBe(true)
-//   })
-// })
+describe('Roman Calculator', () => {
+  it('should validate if the number is valid', () => {
+    expect(RomanCalculator.isValidRoman('ASD')).toBe(false)
+    expect(RomanCalculator.isValidRoman('XVILS')).toBe(false)
+    expect(RomanCalculator.isValidRoman('ABCDEFGHIJKLMNOPRSTUVWXYZ')).toBe(false)
+    expect(RomanCalculator.isValidRoman('some random word')).toBe(false)
+    expect(RomanCalculator.isValidRoman()).toBe(false)
 
-// describe('add()', () => {
-//   it('adds 2+3 to be 5', () => {
-//     expect(add(2, 3)).toBe(5)
-//   })
+    expect(RomanCalculator.isValidRoman('IVX')).toBe(false)
+    expect(RomanCalculator.isValidRoman('XVI')).toBe(true)
+    expect(RomanCalculator.isValidRoman('v')).toBe(true)
+    expect(RomanCalculator.isValidRoman('vv')).toBe(false)
+    expect(RomanCalculator.isValidRoman('viv')).toBe(false)
+    expect(RomanCalculator.isValidRoman('l')).toBe(true)
+    expect(RomanCalculator.isValidRoman('ll')).toBe(false)
+    expect(RomanCalculator.isValidRoman('lil')).toBe(false)
+    expect(RomanCalculator.isValidRoman('III')).toBe(true)
+    expect(RomanCalculator.isValidRoman('iviii')).toBe(false)
+    expect(RomanCalculator.isValidRoman('d')).toBe(true)
+    expect(RomanCalculator.isValidRoman('dd')).toBe(false)
+    expect(RomanCalculator.isValidRoman('dld')).toBe(false)
+    expect(RomanCalculator.isValidRoman('XXXX')).toBe(false)
+    expect(RomanCalculator.isValidRoman('IVXLCDM')).toBe(false)
+    expect(RomanCalculator.isValidRoman('mdclxvi')).toBe(true)
+    expect(RomanCalculator.isValidRoman('MMMDCCCLXXIV')).toBe(true)
+    expect(RomanCalculator.isValidRoman('xxiv')).toBe(true)
+  })
 
-//   it('should return a number', () => {
-//     expect(add('a', 'b')).toBe('ab')
-//   })
+  it('should convert values to arabic correctly', () => {
+    expect(RomanCalculator.convertToArabic('III')).toBe(3)
+    expect(RomanCalculator.convertToArabic('v')).toBe(5)
+    expect(RomanCalculator.convertToArabic('XVI')).toBe(16)
+    expect(RomanCalculator.convertToArabic('xxiv')).toBe(24)
+    expect(RomanCalculator.convertToArabic('l')).toBe(50)
+    expect(RomanCalculator.convertToArabic('cclix')).toBe(259)
+    expect(RomanCalculator.convertToArabic('d')).toBe(500)
+    expect(RomanCalculator.convertToArabic('mdclxvi')).toBe(1666)
+    expect(RomanCalculator.convertToArabic('MMMDCCCLXXIV')).toBe(3874)
+  })
 
-//   it('throws an error when passed undefined as a parameter', () => {
-//     expect(() => add(1)).toThrowError('Two numbers should be defined!')
-//   })
-// })
+  it('should convert values to roman correctly', () => {
+    expect(RomanCalculator.convertToRoman(3)).toBe('III')
+    expect(RomanCalculator.convertToRoman(5)).toBe('V')
+    expect(RomanCalculator.convertToRoman(16)).toBe('XVI')
+    expect(RomanCalculator.convertToRoman(24)).toBe('XXIV')
+    expect(RomanCalculator.convertToRoman(50)).toBe('L')
+    expect(RomanCalculator.convertToRoman(259)).toBe('CCLIX')
+    expect(RomanCalculator.convertToRoman(500)).toBe('D')
+    expect(RomanCalculator.convertToRoman(1000)).toBe('M')
+    expect(RomanCalculator.convertToRoman(1666)).toBe('MDCLXVI')
+    expect(RomanCalculator.convertToRoman(3874)).toBe('MMMDCCCLXXIV')
+  })
+})
