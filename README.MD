@@ -1,3 +1,5 @@
+# Coding Dojo Starter
+
 ## Globally injected variables
 * describe(name, fn)
 * it(name, fn)
@@ -23,14 +25,39 @@
 * .lastCalledWith(arg, um, ents)
 
 ## modules
-* import { name } from 'path'
-* import defaultName from 'path'
-* export { name: name }
-* export const name = fn/variable/value
-* export default name
+
+```javascript
+import { name } from 'path'
+```
+
+```javascript
+import defaultName from 'path'
+```
+
+```javascript
+export { name: name }
+```
+
+```javascript
+export const name = fn/variable/value
+```
+
+```javascript
+export default name
+```
+
 
 ## scripts
-* npm run test
-* npm run test:watch
-* npm run lint
+
+```shell
+npm run test
+```
+
+```shell
+npm run test:watch
+```
+
+```shell
+npm run lint
+```
 
