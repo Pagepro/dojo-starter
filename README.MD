@@ -1,5 +1,7 @@
 # JavaScript Coding Dojo Starter
 
+> A starter for JavaScript Coding Dojo sessions by Pagepro.
+
 ## Globally injected variables
 * describe(name, fn)
 * it(name, fn)
